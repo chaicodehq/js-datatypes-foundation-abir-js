@@ -89,6 +89,14 @@ export function getRationCardEntries(registry) {
 
 export function hasRationCard(registry, cardId) {
   // Your code here
+  if (
+    registry === null ||
+    typeof registry !== "object" ||
+    Array.isArray(registry) ||
+    typeof cardId !== "string"
+  )
+    return false;
+  return registry.hasOwnProperty(cardId);
 }
 
 export function removeRationCard(registry, cardId) {
