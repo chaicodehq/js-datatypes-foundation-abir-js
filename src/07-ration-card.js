@@ -101,4 +101,14 @@ export function hasRationCard(registry, cardId) {
 
 export function removeRationCard(registry, cardId) {
   // Your code here
+  if (
+    Array.isArray(registry) ||
+    typeof registry !== "object" ||
+    registry === null ||
+    Object.keys(registry).length === 0 ||
+    typeof cardId !== "string"
+  )
+    return false;
+
+  return registry.hasOwnProperty(cardId) ? delete registry[cardId] : false;
 }
