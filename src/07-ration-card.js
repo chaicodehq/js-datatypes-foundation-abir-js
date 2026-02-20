@@ -54,6 +54,13 @@
  */
 export function getFamilyNames(registry) {
   // Your code here
+  if (
+    Array.isArray(registry) ||
+    typeof registry !== "object" ||
+    registry === null
+  )
+    return [];
+  return Object.keys(registry);
 }
 
 export function getAllFamilies(registry) {
