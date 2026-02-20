@@ -77,6 +77,14 @@ export function getAllFamilies(registry) {
 
 export function getRationCardEntries(registry) {
   // Your code here
+  if (
+    Array.isArray(registry) ||
+    typeof registry !== "object" ||
+    registry === null ||
+    Object.keys(registry).length === 0
+  )
+    return [];
+  return Object.entries(registry);
 }
 
 export function hasRationCard(registry, cardId) {
